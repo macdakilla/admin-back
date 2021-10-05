@@ -1,0 +1,39 @@
+@import "~swiper/swiper";
+
+.swiper-pagination-bullets {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+
+  visibility: hidden;
+
+  @include below($lg-mobile) {
+    bottom: 15px;
+  }
+}
+
+.swiper-pagination-bullet {
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin: 0 4px;
+
+  background-color: $white;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, .35);
+  opacity: .5;
+  visibility: visible;
+
+  transition: opacity .1s ease;
+
+  &-active {
+    opacity: 1;
+  }
+
+}
+

@@ -1,0 +1,45 @@
+// yourMainScssFile.scss
+
+// Override the variables or import a file that overrides them
+$vt-color-default: rgba(#222222, .85);
+$vt-color-success: rgba(#222222, .85);
+$vt-font-family: $fontPrimary;
+$vt-toast-min-height: 40px;
+
+// Import the regular Vue Toastification stylesheets (or create your own)
+@import "~vue-toastification/src/scss/_variables";
+@import "~vue-toastification/src/scss/_toastContainer";
+@import "~vue-toastification/src/scss/_toast";
+@import "~vue-toastification/src/scss/_closeButton";
+@import "~vue-toastification/src/scss/_progressBar";
+@import "~vue-toastification/src/scss/_icon";
+@import "~vue-toastification/src/scss/animations/_bounce";
+
+.Vue-Toastification__container {
+    &.top-right {
+        top: 65px;
+    }
+}
+
+.Vue-Toastification__toast {
+    padding: 16px 20px;
+    margin-bottom: 10px;
+
+    border-radius: 4px;
+
+    &--success {
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4px;
+            height: 100%;
+            background: $colorGreen;
+        }
+    }
+}
+
+.Vue-Toastification__progress-bar {
+    height: 3px;
+}

@@ -1,0 +1,502 @@
+* {
+    outline: none;
+    box-sizing: border-box;
+}
+
+html, body, div, span, input, textarea, button, select, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: inherit;
+
+    outline: none;
+    font-family: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+
+    &::selection {
+        background: rgba($colorMain, .25)
+    }
+}
+
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+
+html {
+    position: relative;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5 {
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+
+    @include below($lg-mobile) {
+        hyphens: auto;
+    }
+}
+
+h1, .h1 {
+    color: $colorBlack;
+    font-size: $fz-h-xl;
+
+    @include below($md-tablet) {
+        font-size: $fz-h-lg;
+    }
+
+    //@include below($lg-mobile) {
+    //  font-size: $fz-h-md;
+    //}
+}
+
+h2, .h2 {
+    font-size: $fz-h-lg;
+
+    @include below($md-tablet) {
+        font-size: $fz-h-md;
+    }
+
+    @include below($lg-mobile) {
+        font-size: $fz-h-sm;
+    }
+}
+
+h3, .h3 {
+    font-size: $fz-h-md;
+
+    @include below($md-tablet) {
+        font-size: $fz-h-sm;
+    }
+
+    @include below($lg-mobile) {
+        font-size: $fz-h-xs;
+    }
+}
+
+h4, .h4 {
+    font-size: $fz-h-sm;
+
+    @include below($md-tablet) {
+        font-size: $fz-h-xs;
+    }
+
+    @include below($lg-mobile) {
+        font-size: $fz-h-sxs;
+    }
+}
+
+
+figure {
+    margin: 0;
+}
+
+body {
+    position: relative;
+    max-height: 1000000px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    font-family: $fontPrimary;
+    font-size: $fz-md;
+    font-weight: 400;
+    color: $black;
+    line-height: 1.4;
+    background-color: $colorGrayEL;
+
+    &.scrollFixed {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+    }
+}
+
+footer {
+    margin-top: auto;
+}
+
+p {
+    margin: 0;
+    font-size: $fz-md;
+    font-weight: 400;
+}
+
+b,
+strong {
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: $colorMain;
+    outline: none;
+    cursor: pointer;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+
+button {
+    padding: 0;
+    -webkit-appearance: none;
+
+    border: 0;
+    background: none;
+    box-shadow: none;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: $fontPrimary;
+    user-select: none;
+}
+
+input {
+    text-overflow: ellipsis;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: $fontPrimary;
+}
+
+input[type='text'],
+input[type='number'],
+input[type='tel'],
+textarea {
+    font-size: 16px;
+}
+
+input::placeholder,
+input::-webkit-input-placeholder,
+input::-moz-placeholder {
+    color: $black;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]:hover,
+input[type="number"]:focus {
+    -moz-appearance: number-input;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border: 1px solid black;
+    -webkit-text-fill-color: $black;
+    -webkit-box-shadow: 0 0 0 1000px rgba($colorMain, 0.05) inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+textarea {
+    -webkit-appearance: none;
+    resize: none;
+    font-family: $fontPrimary;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.container {
+    max-width: 100%;
+}
+
+.containerWide {
+    width: 1860px;
+    max-width: 100%;
+    padding: 0 30px;
+    margin: 0 auto;
+
+    @include below($md-tablet) {
+        padding: 0 24px;
+    }
+
+    @include below($lg-mobile) {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+.innerWrapper {
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+
+    @include below($sm-desktop) {
+        max-width: 900px;
+    }
+}
+
+.siteWrapper {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+
+    background: $white;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.article {
+    font-size: $fz-xl;
+
+    @include below($lg-mobile) {
+        font-size: $fz-md;
+    }
+
+    p {
+        margin-bottom: 25px;
+
+        font-size: inherit;
+        line-height: 1.4;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    h1 {
+        margin: 30px 0 25px;
+    }
+
+    h2 {
+        margin: 25px 0 20px;
+    }
+
+    h3 {
+        margin: 25px 0 15px;
+    }
+
+    h4 {
+        margin: 20px 0 12px;
+    }
+
+    ul, ol {
+        margin: 15px 0 25px 20px;
+
+        font-size: inherit;
+
+        li {
+            position: relative;
+            margin-bottom: 12px;
+
+            font-size: inherit;
+            list-style: none;
+            line-height: 1.4;
+
+            &:before {
+                content: '';
+
+                position: absolute;
+                top: 14px;
+                left: -20px;
+                width: 6px;
+                height: 6px;
+
+                background: $colorMain;
+                border-radius: 50%;
+
+                @include below($lg-mobile) {
+                    top: 10px;
+                }
+            }
+        }
+    }
+
+    a {
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+.scrollTable {
+    @include below($lg-tablet) {
+        margin-right: -24px;
+        margin-left: -24px;
+    }
+
+    @include below($lg-mobile) {
+        margin-right: -16px;
+        margin-left: -16px;
+    }
+
+    table {
+        display: block;
+        overflow: auto;
+        max-width: 100%;
+        width: auto !important;
+
+        @include below($lg-tablet) {
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        @include below($md-tablet) {
+            width: calc(100% + 48px) !important;
+        }
+
+        @include below($lg-mobile) {
+            padding-left: 16px;
+            padding-right: 16px;
+            width: calc(100% + 32px) !important;
+        }
+    }
+
+    tbody {
+        position: relative;
+        display: table;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 100%;
+
+            display: block;
+            width: 20px;
+            height: 24px;
+
+            @include below($lg-mobile) {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+
+        @include below($md-tablet) {
+            width: 100%;
+            min-width: 700px;
+        }
+
+        @include below($lg-mobile) {
+            min-width: 400px;
+        }
+    }
+
+    tr {
+        &:nth-child(odd) {
+            background-color: $colorGrayEL;
+        }
+    }
+
+    th {
+        font-weight: 700;
+    }
+
+    th, td {
+        padding: 10px 20px;
+
+        @include below($lg-tablet) {
+            padding: 10px 15px;
+        }
+    }
+}
+
+
+.page-enter-active,
+.page-leave-active {
+    transition: opacity 0.14s;
+}
+.page-enter,
+.page-leave-to {
+    opacity: 0;
+}
+
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px
+}
+
+::-webkit-scrollbar-button {
+    background-color: #222;
+    height: 0;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #fff
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: #222
+}
+
+::-webkit-scrollbar-thumb {
+    height: 40px;
+    background-color: rgba(255,255,255,.3);
+    border-radius: 0
+}
+
+::-webkit-scrollbar-corner {
+    background-color: #fff;
+    display: none
+}
+
+::-webkit-resizer {
+    background-color: #fff;
+    display: none
+}
+
+body {
+    ::-webkit-scrollbar {
+        width: 4px;
+        height: 4px
+    }
+
+    ::-webkit-scrollbar-track-piece {
+        background-color: #ddd
+    }
+
+    ::-webkit-scrollbar-thumb {
+        height: 20px;
+        background-color: rgba(0,0,0,.4);
+    }
+}
+
+
+.cursor-pointer {
+    cursor: pointer;
+}
